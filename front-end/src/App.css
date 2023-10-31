@@ -1,38 +1,66 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes colorChange {
+  0% {
+    background-color: #0074D9; /* Dark Blue */
+  }
+  10% {
+    background-color: #1E90FF; /* Medium Blue */
+  }
+  20% {
+    background-color: #6BB9F0; /* Even lighter blue */
+  }
+  30% {
+    background-color: #BCD8FD; /* Very light blue */
+  }
+  40% {
+    background-color: #D6EAF8; /* Lighter blue */
+  }
+  50% {
+    background-color: #E6F7FF; /* Almost white blue */
+  }
+  60% {
+    background-color: #D6EAF8; /* Lighter blue */
+  }
+  70% {
+    background-color: #BCD8FD; /* Very light blue */
+  }
+  80% {
+    background-color: #6BB9F0; /* Even lighter blue */
+  }
+  90% {
+    background-color: #1E90FF; /* Medium Blue */
+  }
+  100% {
+    background-color: #0074D9; /* Dark Blue */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+nav {
+  width: 100%;
+  height: 100px;
+  animation: colorChange 7s infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards; /* Keeps the last keyframe after animation ends */
+}
+
+.about-us,
+.contact,
+.premium-feature,
+.log-in,
+.path-finder-logo {
+  position: absolute;
+  top: 10%;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.about-us { 
+  left: 89%; 
+  text-decoration: none; 
+  border-radius: 12px;
+  height: 25px;
+  width: 70px;
+  background-color: red;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.contact { left: 83%; text-decoration: none;}
+.premium-feature { left: 72%; text-decoration: none;}
+.log-in { left: 95%; text-decoration: none;}
+.path-finder-logo { height: 90px; top: 1%; width: 90px}
