@@ -23,8 +23,8 @@ const instructions = [
 export default function HowToPlay() {
   return (
     <div className="how-to-play mx-5 border-x grid place-items-center min-h-screen">
-      <h1 className="text-center grid gap-5 bg-slate-700 border-b w-full py-5">
-        <p className="mx-5 text-sm">
+      <h1 className="text-center font-bold grid justify-center gap-5 bg-slate-700 border-b w-full py-5">
+        <p className="mx-5 text-sm font-normal">
           <b>— Dev Note:</b> Replace the gifs when all other components are
           finished.
         </p>
@@ -36,12 +36,12 @@ export default function HowToPlay() {
             <div className="gif border md:rounded-3xl overflow-hidden shadow-xl">
               <img src={ins.gif} />
             </div>
-            <h2 className="font-semibold text-lg border-b">{ins.text}</h2>
+            <h2 className="mx-5 font-semibold text-lg border-b">{ins.text}</h2>
           </div>
         ))}
       </div>
       <div className="start w-full bg-slate-800 grid gap-10 place-items-center text-center py-10">
-        <h2 className="text-2xl font-semibold">
+        <h2 className="mx-5 text-2xl font-semibold">
           Ready to start your adventure?
         </h2>
         <img src={logo} className="w-32" />
