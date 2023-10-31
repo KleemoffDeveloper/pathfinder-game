@@ -1,3 +1,4 @@
+import Home from "./pages/Home";
 import HowToPlay from "./pages/HowToPlay";
 
 function App() {
