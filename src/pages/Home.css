@@ -1,89 +1,10 @@
 .home .main {
-  max-width: 640px;
-}
 
-@keyframes pulse {
-  0% {
-    width: 300px;
-    height: 300px;
-  }
-  50% {
-    width: 290px;
-    height: 290px;
-  }
-  100% {
-    width: 300px;
-    height: 300px;
-  }
-}
-
-@keyframes vert-hover {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.home .logo {
-  width: 300px;
-  height: 300px;
-  border-radius: 100%;
-  overflow: hidden;
-  border: 2px solid;
-  box-shadow: 1px 1px 25px black;
-  transition: 0.25s;
-}
-
-.home .logo:hover {
-  box-shadow: 1px 1px 50px white;
-  transition: 0.25s;
-}
-
-.typewriter {
-  font-size: 2em;
-  letter-spacing: 4px;
-  font-family: monospace;
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.typewriter-caret {
-  border-right: 5px solid;
-}
-
-@keyframes cursor {
-  50% {
-    border-color: transparent;
-  }
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-}
-
-@media screen and (max-width: 550px) {
-  @keyframes pulse {
-    0% {
-      width: 212px;
-      height: 212px;
-    }
-    50% {
-      width: 202px;
-      height: 202px;
-    }
-    100% {
       width: 212px;
       height: 212px;
     }
   }
+
 
   .typewriter {
     font-size: 1.45em;
@@ -100,3 +21,4 @@
     font-size: 0.85em;
   }
 }
+
