@@ -1,5 +1,6 @@
 import "./HowToPlay.css";
-// import logo from "../assets/PathFinder-small.png";
+import logo from "../assets/PathFinder-small.png";
+
 
 const instructions = [
   {
@@ -49,4 +50,6 @@ export default function HowToPlay() {
       </div>
     </div>
   );
+
 }
+
