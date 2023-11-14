@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import OpenAI from "openai";
 import dotenv from "dotenv";
 import promptSync from "prompt-sync";
@@ -23,6 +23,9 @@ const game = {
 };
 
 export default function StartGame(){
+    const [choices, setChoices] = useState([])
+
+
     console.log("Starting Game...")
 
     function firstPrompt(){
@@ -65,10 +68,18 @@ export default function StartGame(){
             );
 
             console.log(title, plot, choices);
+
+            setChoices(choices)
         }
         firstPromptRequest()
     }
-    useEffect(firstPrompt, [])
+    useEffect(() => {firstPrompt();}, [])
 
-    return;
+    return (
+        <div>
+            <h1>Adventure Game</h1>
+            <p>{choices.join("\n")}</p> {/* Render the choices as paragraphs */}
+        </div>
+    );
+    
 }
