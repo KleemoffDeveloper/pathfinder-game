@@ -3,7 +3,7 @@
       width: 212px;
       height: 212px;
     }
-  }
+  
 
 
   .typewriter {
@@ -14,7 +14,7 @@
     width: 212px;
     height: 212px;
   }
-}
+
 
 @media screen and (max-width: 450px) {
   .typewriter {
