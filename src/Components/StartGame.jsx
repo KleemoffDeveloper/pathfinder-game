@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import OpenAI from "openai";
 import dotenv from "dotenv";
 import promptSync from "prompt-sync";
+import { v4 as uuidv4 } from 'uuid'
 
 
 //dotenv.config(); <--I don't know if we're going to need this...
@@ -15,15 +16,10 @@ let program = true;
 //Removes the \n
 const filteredResponse = (response) => response.split("\n").filter((element) => element);
 
-const game = {
-    context: "",
-    choice: "",
-    currentChoice: 0,
-    maxChoices: 3,
-};
-
 export default function StartGame(){
+    const [scenario, setScenario] = useState('')
     const [choices, setChoices] = useState([])
+    
 
 
     console.log("Starting Game...")
@@ -68,17 +64,55 @@ export default function StartGame(){
             );
 
             console.log(title, plot, choices);
+            console.log(initialRequest)
 
             setChoices(choices)
         }
         firstPromptRequest()
     }
-    useEffect(() => {firstPrompt();}, [])
+    useEffect(() => {firstPrompt()}, [])
+
+
+    const game = {
+        context: "",
+        choice: "",
+        currentChoice: 0,
+        maxChoices: 3,
+    };
+    
+    function handleChoice(choice){
+        // const [aChoice, setAChoice] = useState(game.choice)
+    
+        const dynamicChoice = openai.chat.completions.create({
+            messages: [
+                {
+                    role: "system",
+                    content: "Still playing the adventure game"
+                },
+                {
+                    role: "user",
+                    content: `I pick choice ${choice}`
+                },
+            ],
+            temperature: 0.08,
+            max_tokens: 500,
+            model: "gpt-3.5-turbo"
+        })
+
+        // setAChoice(game.choice)
+    
+    }
 
     return (
         <div>
             <h1>Adventure Game</h1>
-            <p>{choices.join("\n")}</p> {/* Render the choices as paragraphs */}
+            {choices.map((choice, index) =>(
+                <>
+                <button key={uuidv4()} onClick={handleChoice}>{`Choice ${index+1}`}</button>
+                <p key={uuidv4()}>{choice}</p>
+                </>
+            ))}
+            
         </div>
     );
     
