@@ -19,6 +19,8 @@ const filteredResponse = (response) => response.split("\n").filter((element) => 
 export default function StartGame(){
     const [scenario, setScenario] = useState('')
     const [choices, setChoices] = useState([])
+    const [plot, setPlot] = useState('')
+    const [title, setTitle] = useState('')
     
 
 
@@ -63,9 +65,11 @@ export default function StartGame(){
                 element.includes("Choices ") && element.length > 10
             );
 
-            console.log(title, plot, choices);
-            console.log(initialRequest)
+            // console.log(title, plot, choices);
+            // console.log(initialRequest)
 
+            setTitle(title)
+            setPlot(plot)
             setChoices(choices)
         }
         firstPromptRequest()
@@ -79,40 +83,51 @@ export default function StartGame(){
         currentChoice: 0,
         maxChoices: 3,
     };
-    
-    function handleChoice(choice){
-        // const [aChoice, setAChoice] = useState(game.choice)
-    
-        const dynamicChoice = openai.chat.completions.create({
-            messages: [
-                {
-                    role: "system",
-                    content: "Still playing the adventure game"
-                },
-                {
-                    role: "user",
-                    content: `I pick choice ${choice}`
-                },
-            ],
-            temperature: 0.08,
-            max_tokens: 500,
-            model: "gpt-3.5-turbo"
-        })
 
-        // setAChoice(game.choice)
     
-    }
-
+        // State for storing the choice
+        const [aChoice, setAChoice] = useState(null);
+    
+        // Your handleChoice function
+        async function handleChoice(choice) {
+            try {
+                const dynamicChoice = await openai.chat.completions.create({
+                    messages: [
+                        // {
+                        //     role: "system",
+                        //     content: "Still playing the adventure game",
+                        // },
+                        {
+                            role: "user",
+                            content: `I pick choice ${choice}`,
+                        },
+                    ],
+                    temperature: 0.08,
+                    max_tokens: 500,
+                    model: "gpt-3.5-turbo",
+                });
+    
+                const dynamicResponse = filteredResponse(dynamicChoice.choices[0].message.content);
+                // console.log(dynamicResponse);
+    
+                // Update the state with the chosen value
+                setAChoice(choice);
+            } catch (error) {
+                console.error("Error while handling choice:", error);
+            }
+        }
+    //     // setAChoice(game.choice)
+    
     return (
         <div>
-            <h1>Adventure Game</h1>
-            {choices.map((choice, index) =>(
-                <>
-                <button key={uuidv4()} onClick={handleChoice}>{`Choice ${index+1}`}</button>
-                <p key={uuidv4()}>{choice}</p>
-                </>
+            <h1>{title}</h1>
+            <h6>{plot}</h6>
+            {choices.map((choice, index) => (
+                <div key={uuidv4()}>
+                    <button onClick={() => handleChoice(choice)}>{`Choice ${index + 1}`}</button>
+                    <p>{choice}</p>
+                </div>
             ))}
-            
         </div>
     );
     
