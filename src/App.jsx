@@ -1,8 +1,11 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom'
 import NavBar from './NavBar';
-import SignIn from './components/SignIn'
+import Login from './components/Login'
 import Contact from './components/Contact'
+import AuthDetails from './components/AuthDetails';
+import Signup from './components/SignUp'
+import Reset from './components/Reset'
 
 import './App.css';
 
@@ -13,9 +16,12 @@ function App() {
     <>
     
     <NavBar />
+    <AuthDetails />
     <Routes>
-        <Route  path="/sign-in" element={<SignIn />}/>
-        <Route  path="/contact" element={<Contact/>}/>
+        <Route  path="/login" element={<Login />}/>
+        <Route path="/signup" element={<Signup/>}/>
+        <Route  path="/contact-us" element={<Contact/>}/>
+        <Route path="/reset" element={<Reset/>}/>
     </Routes>
  
   </>

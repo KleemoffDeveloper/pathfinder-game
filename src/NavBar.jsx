@@ -1,31 +1,40 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import picture from './images/PathFinder.png';
+import { Link } from 'react-router-dom';
+import AuthDetails from './components/AuthDetails';
 
 export default function NavBar() {
-  const [isMenuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuOpen(!isMenuOpen);
-  };
-
   return (
-    <nav>
-      
-      <Link to="/">
-        <img className="path-finder-logo" src={picture} alt="Path Finder Logo" />
-      </Link>
-      <ul className={`navbar ${isMenuOpen ? 'open' : ''}`}>
-        <li><Link to="/" class="active">Home</Link></li>
-        <li><Link to="/premium-feature">Premium Feature</Link></li>
-        <li><Link to="/how-to-play">How to play</Link></li>
-        <li><Link to="/about-us">About Us</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
-      </ul>
-      <div className="main">
-        <Link to="/sign-in" className="user"><i className="ri-user-fill"></i>Sign In</Link>
-        <div className={`bx bx-menu ${isMenuOpen ? 'bx-x' : ''}`} id="menu-icon" onClick={toggleMenu}></div>
-      </div>
-    </nav>
+    <>
+      <header>
+        <nav className="navbar">
+          <Link to="/">
+            <img className="logo" src={picture} alt="" />
+          </Link>
+          <ul className="links">
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/premium-feature">Premium Feature </Link>
+            </li>
+            <li>
+              <Link to="/how-to-play">How to Play</Link>
+            </li>
+            <li>
+              <Link to="/about-us">About us</Link>
+            </li>
+            <li>
+              <Link to="/contact-us">Contact us </Link>
+            </li>
+          </ul>
+          <button className="login-btn">
+            <Link className="login-nav-btn" to="/login">
+              LOG IN
+            </Link>
+          </button>
+        </nav>
+      </header>
+    </>
   );
 }
+
