@@ -23,7 +23,6 @@ export default function StartGame(){
     const [title, setTitle] = useState('')
     
 
-
     console.log("Starting Game...")
 
     function firstPrompt(){
@@ -93,13 +92,13 @@ export default function StartGame(){
             try {
                 const dynamicChoice = await openai.chat.completions.create({
                     messages: [
-                        // {
-                        //     role: "system",
-                        //     content: "Still playing the adventure game",
-                        // },
+                        {
+                            role: "system",
+                            content: "Still playing the adventure game",
+                        },
                         {
                             role: "user",
-                            content: `I pick choice ${choice}`,
+                            content: `I pick choice ${choice}, continue the game and provide me three more choices with one sentence each.`,
                         },
                     ],
                     temperature: 0.08,
@@ -107,8 +106,12 @@ export default function StartGame(){
                     model: "gpt-3.5-turbo",
                 });
     
-                const dynamicResponse = filteredResponse(dynamicChoice.choices[0].message.content);
-                // console.log(dynamicResponse);
+            //   const dynamicResponse = filteredResponse(dynamicChoice.choices[0].message.content);
+
+                const dynamicResponse = dynamicChoice.choices[0].message
+
+
+                console.log(dynamicResponse);
     
                 // Update the state with the chosen value
                 setAChoice(choice);
@@ -132,3 +135,6 @@ export default function StartGame(){
     );
     
 }
+
+
+//testing
