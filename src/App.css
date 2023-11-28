@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
 
 * {
   margin: 0;
@@ -428,8 +429,7 @@ form button:hover {
   background-color: #0056b3; 
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
-
+/*
 * {
   margin: 0;
   padding: 0;
@@ -447,7 +447,7 @@ textarea {
   width: -50%;
   min-height: 10vh;
   padding: 3rem;
-  /* background-color: #fafafa; */
+  background-color: #fafafa;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -467,7 +467,7 @@ textarea {
 }
 
 .unique-contact-form {
-  /* background-color: #1abc9c; */
+  background-color: #1abc9c;
   position: relative;
 }
 
@@ -779,3 +779,4 @@ form {
     padding: 0.45rem 1.2rem;
   }
 }
+*/
