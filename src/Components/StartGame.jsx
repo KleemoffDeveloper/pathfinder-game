@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import OpenAI from "openai";
 import dotenv from "dotenv";
 import promptSync from "prompt-sync";
@@ -136,5 +137,3 @@ export default function StartGame(){
     
 }
 
-
-//testing
