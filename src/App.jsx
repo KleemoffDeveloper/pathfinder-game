@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom'
-import NavBar from './NavBar';
 import Login from './LoginFolder/Login'
 import AuthDetails from './LoginFolder/AuthDetails';
 import Signup from './LoginFolder/SignUp'
@@ -14,7 +13,7 @@ function App() {
   return (
     <>
     
-    <NavBar />
+
     <AuthDetails />
     <Routes>
         <Route  path="/login" element={<Login />}/>
