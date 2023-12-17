@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Routes, Route } from 'react-router-dom'
 import Login from './LoginFolder/Login'
@@ -6,7 +7,6 @@ import Signup from './LoginFolder/SignUp'
 import Reset from './LoginFolder/Reset'
 
 import './App.css';
-
 
 function App() {
 
@@ -23,6 +23,8 @@ function App() {
  
   </>
   );
+
 }
 
-export default App;
+export default App
+
