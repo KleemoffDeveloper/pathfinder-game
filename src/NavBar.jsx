@@ -1,6 +1,6 @@
 import picture from './images/PathFinder.png';
 import { Link } from 'react-router-dom';
-import AuthDetails from './components/AuthDetails';
+import AuthDetails from './LoginFolder/AuthDetails';
 
 export default function NavBar() {
   return (
