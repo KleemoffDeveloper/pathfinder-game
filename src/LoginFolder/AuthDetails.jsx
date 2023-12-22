@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { auth } from '../firebase/firebase';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
+import React, { useEffect, useState } from "react";
+import { auth } from "../firebase/firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import "./Auth.css";
 
 export default function AuthDetails() {
   const [authUser, setAuthUser] = useState(null);
@@ -22,7 +23,7 @@ export default function AuthDetails() {
   const userSignOut = () => {
     signOut(auth)
       .then(() => {
-        console.log('Sign out successful');
+        console.log("Sign out successful");
       })
       .catch((error) => console.log(error));
   };
@@ -30,14 +31,15 @@ export default function AuthDetails() {
   return (
     <>
       <div className="signed-out-container">
-  <p className="signed-out-text">{authUser ? `Signed In as ${authUser.email}` : 'Signed Out'}</p>
-  {authUser && (
-    <button className='signout-route-btn' onClick={userSignOut}>
-      Sign Out
-    </button>
-  )}
-</div>
-
+        <p className="signed-out-text">
+          {authUser ? `Signed In as ${authUser.email}` : "Signed Out"}
+        </p>
+        {authUser && (
+          <button className="signout-route-btn" onClick={userSignOut}>
+            Sign Out
+          </button>
+        )}
+      </div>
     </>
   );
 }
